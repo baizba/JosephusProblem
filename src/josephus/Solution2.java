@@ -1,11 +1,11 @@
+package josephus;
+
 /**
  * Solution for the Josephus Problem: https://en.wikipedia.org/wiki/Josephus_problem
  */
 public class Solution2 extends AbstractSolution {
 
-    public int solve(int numberOfSoldiers) {
-        int[] soldiers = generateArrayOfSoldiers(numberOfSoldiers);
-
+    protected int solve(int[] soldiers) {
         //start at the beginning of soldier array
         int index = 0;
 
@@ -21,7 +21,7 @@ public class Solution2 extends AbstractSolution {
          */
         boolean killSwitch = true;
 
-        while (killedSoldiersCount < numberOfSoldiers - 1) {
+        while (killedSoldiersCount < soldiers.length - 1) {
             //get the current soldier
             int currentSoldier = soldiers[index];
 

@@ -1,13 +1,13 @@
+package josephus;
+
 /**
  * Solution for the Josephus Problem: https://en.wikipedia.org/wiki/Josephus_problem
  */
 public class Solution1 extends AbstractSolution {
 
-    public int solve(int numberOfSoldiers) {
-        int[] soldiers = generateArrayOfSoldiers(numberOfSoldiers);
-
+    protected int solve(int[] soldiers) {
         while (soldiers.length > 1) {
-            int[] tempArray = null;
+            int[] tempArray;
             int tempIndex = 0;
             if (soldiers.length % 2 == 0) {
                 tempArray = new int[soldiers.length / 2];
