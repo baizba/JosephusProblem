@@ -18,4 +18,9 @@ public abstract class AbstractSolution {
     public long getDurationMilliseconds() {
         return durationMilliseconds;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
 }

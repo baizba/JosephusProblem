@@ -5,6 +5,7 @@ package josephus;
  */
 public class Solution2 extends AbstractSolution {
 
+    @Override
     protected int solve(int[] soldiers) {
         //start at the beginning of soldier array
         int index = 0;

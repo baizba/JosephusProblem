@@ -2,19 +2,25 @@ package josephus;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    private static final String UNFORMATTED_MESSAGE = "Solution algorithm is: %s. Number of soldiers is %d. Solution is: %d. It took %d milliseconds.";
 
-        final int[] soldiers = generateArrayOfSoldiers(1_000_000);
+    public static void main(String[] args) {
+        final int[] soldiers = generateArrayOfSoldiers(1_000_000_000);
 
         testSolution(new Solution1(), soldiers);
         testSolution(new Solution2(), soldiers);
     }
 
     private static void testSolution(AbstractSolution solution, int[] soldiers) {
-        final int survivor = solution.solveWithTimer(soldiers);
-        final long duration = solution.getDurationMilliseconds();
-        final String message = String.format("Number of soldiers is %d Solution is: %d It took %d milliseconds", soldiers.length, survivor, duration);
-        System.out.println(message);
+        try {
+            final int survivor = solution.solveWithTimer(soldiers);
+            final long duration = solution.getDurationMilliseconds();
+            final String message = String.format(UNFORMATTED_MESSAGE, solution.toString(), soldiers.length, survivor, duration);
+            System.out.println(message);
+        } catch (Exception e) {
+            System.out.printf("Solution %s caused an error: %s%n", solution.toString(), e.getMessage());
+        }
+
     }
 
     /*

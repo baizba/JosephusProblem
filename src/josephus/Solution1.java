@@ -5,6 +5,7 @@ package josephus;
  */
 public class Solution1 extends AbstractSolution {
 
+    @Override
     protected int solve(int[] soldiers) {
         while (soldiers.length > 1) {
             int[] tempArray;
